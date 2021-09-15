@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const url = "https://jsonplaceholder.typicode.com/posts";
 
-  if (!isLoaded) return <p>Loading ..</p>
+  useEffect(() => {
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      setUsers(data);
+      setIsLoaded(true);
+    })
+  }, [])
+
+  if (!isLoaded) return <p>Loading ..</p>;
 
   return (
     <div className="UserTable">
@@ -12,15 +22,15 @@ const UserTable = () => {
         <thead>
           <tr>
             {Object.keys(users[0]).map(title => (
-              <th>{title}</th>
+              <th key={title}>{title}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {users.map((row, rowIdx) => (
-            <tr>
-              {Object.values(row).map(data => (
-                <td>{data}</td>
+            <tr key={rowIdx}>
+              {Object.values((row)).map((data, i) => (
+                <td key={i}>{data}</td>
               ))}
             </tr>
           ))}
