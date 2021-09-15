@@ -1,6 +1,5 @@
 const checkValid = (board, x, y, num) => {
-  console.log(board);
-
+  // console.log(board);
   const validInputs = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   if (!validInputs.has(+num)) return false;
 

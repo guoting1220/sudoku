@@ -50,3 +50,11 @@
 table tr:nth-child(3) {
   border: 1px solid red;
 }
+
+div {
+    background: url("https://images.unsplash.com/photo-1631127603176-ad9e179dc6db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* background-size: 100% 100%; */
+}
